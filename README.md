@@ -93,4 +93,93 @@ breaks.
 ---
 
 ## Repository contents
+
+```
+.
+├── README.md                     ← you are here
+├── LICENSE                       ← CC BY 4.0
+├── requirements.txt
+├── papers/
+│   └── The_Red_Queens_Prison_v4.pdf
+│       (companions, separately deposited on Zenodo:
+│        Turtles, or Crystals      — DOI 10.5281/zenodo.20484438
+│        Turtles, All the Way Up   — DOI 10.5281/zenodo.20486047)
+└── experiment/
+    ├── topology_experiment.py    ← the model (runs, documented, not rigged)
+    ├── plot_results.py           ← regenerates Figure 1 from the data
+    ├── topology_results.json     ← output of the 200-seed run
+    └── topology_result.png       ← Figure 1 in the paper
+```
+
+That's the whole package. If a file isn't listed here, it isn't part of this work.
+
+---
+
+## The six domains — test *templates*, not results
+
+The centralized-vs-distributed axis can be mapped onto many fields. **None of
+these mappings have been tested.** They are starting points for *you* to set up a
+test in your domain by adapting `topology_experiment.py` — not findings, and not
+claims that the paper makes.
+
+| Domain | "Hub" (centralized) | "Mesh" (distributed) | What you'd test |
+|---|---|---|---|
+| Military C2 | orders specify position/time/route | mission command (specify *intent*) | error/effectiveness under jamming + spoofing |
+| Corporate | all decisions via one executive | departments act on shared goals | continuity when the center is removed |
+| Software | single API gateway / monolith | service mesh | request success when a node is compromised |
+| Supply chain | single-source supplier | diversified regional sourcing | output when a key node fails |
+| Infrastructure | central grid hub | islanding microgrids | nodes online after a hub failure |
+| Ecology *(contested)* | single coordination channel | multiple channels | robustness to channel disruption |
+
+A direct note on the ecology row: the paper **deliberately makes no biological
+claims** (an earlier draft's crab/orca examples were cut — see the paper's change
+log — because the biology is contested and better explained by kin selection than
+by communication). If you work in this area, the genuinely open question is
+whether multi-channel species are more robust to channel disruption. We do not
+assert that they are.
+
+---
+
+## Open questions (where we'd love help)
+
+- **Parameter sweep.** Does the crossover survive changes in agent count, mesh
+  connectivity, sensing noise, target drift, and attack magnitude? Where does it
+  break?
+- **Layer compounding.** The paper claims the five "layers" compound; that
+  interaction is asserted, not modeled. Build a model where it's explicit.
+- **Corruption vs. destruction.** The paper argues a degraded-but-trusted node is
+  worse than a dead one. The current experiment tests corruption; add a clean
+  destruction comparison.
+- **Your domain.** Adapt the experiment using the templates above and report what
+  you find — including a null result. A "no difference" is a real result.
+
+To contribute: fork, change one thing, document it, and open a pull request with
+your code, data, and what it showed (even if it contradicts the paper).
+
+---
+
+## Papers (trilogy on substrate-independent life)
+
+1. *Turtles, or Crystals* — Zenodo DOI [10.5281/zenodo.20484438](https://doi.org/10.5281/zenodo.20484438)
+2. *Turtles, All the Way Up* — Zenodo DOI [10.5281/zenodo.20486047](https://doi.org/10.5281/zenodo.20486047)
 3. *The Red Queen's Prison* (this repository) — Zenodo DOI [10.5281/zenodo.20500531](https://doi.org/10.5281/zenodo.20500531)
+
+---
+
+## How to cite
+
+> Schulz, M. (2026). *The Red Queen's Prison: Frame-Lock and the Architecture of
+> Organizational Collapse in Evolutionary Warfare.* Working Draft v4. Zenodo.
+> DOI 10.5281/zenodo.20500531. CC BY 4.0.
+
+---
+
+## License
+
+Everything here — paper, code, data — is released under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Share, adapt, and use
+freely with attribution.
+
+**Contact:** mattschulz97@protonmail.com · ORCID 0009-0000-0956-5743
+
+*Built to be broken. If you break it, tell us how.*
